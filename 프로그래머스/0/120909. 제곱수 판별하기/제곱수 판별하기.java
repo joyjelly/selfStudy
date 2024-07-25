@@ -5,6 +5,7 @@ class Solution {
         for(int i=1;i<=n;i++){
             if(n%i==0&&n/i==i){
                 answer=1;
+                break;
             }
         }
         return answer;
