@@ -1,11 +1,10 @@
 class Solution {
     public int solution(int n) {
-        int answer = 1000001;
-        for (int i =n-1;i>=2;i--){
-            if(n%i==1){
-                answer = Math.min(answer,i);
+        for (int x = 2; x < n; x++) {
+            if (n % x == 1) {
+                return x;
             }
         }
-        return answer;
+        return n - 1; 
     }
 }
