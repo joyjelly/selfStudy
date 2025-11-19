@@ -1,16 +1,20 @@
 import java.util.*;
-
 class Solution {
     public int[] solution(int[] array, int[][] commands) {
-        List<Integer> list = new ArrayList<>();
-        for (int[] c : commands) {
+        int[] answer = new int[commands.length];
+        for(int i =0;i<commands.length;i++){
+            int start = commands[i][0];
+            int end = commands[i][1];
+            int result = commands[i][2];
             
-            int[] temp = Arrays.copyOfRange(array, c[0] - 1, c[1]);
+            int[] temp = Arrays.copyOfRange(array,start-1,end);
             Arrays.sort(temp);
-            list.add(temp[c[2] - 1]);
+            
+            answer[i] = temp[result-1];
+            
         }
         
         
-        return list.stream().mapToInt(Integer::intValue).toArray();
+        return answer;
     }
 }
