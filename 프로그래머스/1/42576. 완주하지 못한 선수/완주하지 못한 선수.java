@@ -2,22 +2,19 @@ import java.util.*;
 class Solution {
     public String solution(String[] participant, String[] completion) {
         String answer = "";
-        Map<String,Integer> ppl1 = new HashMap<>();
-        //완주 한 사람들을 먼저 넣고
-        for(String person:completion){
-            ppl1.put(person,ppl1.getOrDefault(person,0)+1);
-           
+            HashMap<String,Integer >map1 = new HashMap<>();
+     for(String temp:participant){
+         map1.put(temp,map1.getOrDefault(temp,0)+1);
+     }
+        for(String name:completion){
+            map1.put(name,map1.get(name)-1);
         }
         
-        for(String person:participant){
-        if(ppl1.getOrDefault(person,0)==0){
-            return person;
+        for(String names:map1.keySet()){
+            if(map1.get(names) !=0){
+                return names;
+            }
         }
-            ppl1.put(person,ppl1.get(person)-1);
-           
-        }
-      
-        
         
         return answer;
     }
